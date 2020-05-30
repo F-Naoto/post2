@@ -1,0 +1,42 @@
+<div class="col-md-7">
+    <% @feed_items.each do |f|%>
+    <p id="_question">＜️空欄に入る適切な語句を選択肢から選びなさい。＞<br>Question: <%= f.question %></p>
+    <!--問題を入力-->
+    <ul id="choices">
+    <%= @answer %>
+      <li onclick="goAnswer(1, <%= f.answer %>)"><%= f.choice_1 %></li>
+      <li onclick="goAnswer(2, <%= f.answer %>)"><%= f.choice_2 %></li>
+      <li onclick="goAnswer(3, <%= f.answer %>)"><%= f.choice_3 %></li>
+      <li onclick="goAnswer(4, <%= f.answer %>)"><%= f.choice_4 %></li>
+     　 by <%=f.user.name%>　♡いいね済
+    </ul>
+    <% end %>
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+$('#choices').on('click', function goAnswer(selectAnswerNo, correctAnswerNo) {
+if (selectAnswerNo == correctAnswerNo){
+  alert("正解");
+$.ajax({
+  type: "POST",
+  url: quizzes_url,
+  dataType: "json",
+  data: {
+    answer: 1
+  },
+  success: function(data) {
+    alert("success");
+  },
+  error: function(data) {
+    alert("error");
+  }
+  });
+}else  alert("不正解");
+});
+
+
+
+
+</script>

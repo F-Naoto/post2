@@ -1,0 +1,334 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$gray-medium-light: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+
+/* forms */
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+/*ページネーション自体のデザイン*/
+.pagination>li>a {          
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {     
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {        
+  border-radius: 15px;    /*角を丸くする*/
+}
+
+// navbarのデザイン
+.navbar{
+  background:white;
+   margin:0;
+   height:4em;
+}
+
+.hero {
+  background: image-url('top.jpg') center top; 
+  background-size: cover;
+  color: #fff;
+  height:60em;
+  padding: 6rem 2rem;
+  .top-container{
+  margin-top:150px;
+  }
+  h1{
+  color:#1e90ff;
+  }
+  p{
+  color:#1e90ff;
+  }
+} 
+
+
+.toGetFreedom{
+  height: 30em;
+  text-align: center;
+  background-image: url(img/introbottom.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  .toGetFreedom-Child{
+    margin-top: 80px;
+    margin-bottom:0px;
+  }
+  h2{
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 28px;
+  }
+  .freedom-Explanation{
+    margin-top: 60px;
+    font-weight: 300;
+    font-size: 20px;
+    letter-spacing: 2px;
+    line-height: 15px;
+  }
+}
+
+.about_us{
+  background-color:#fffacd
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+
+footer a {
+  color: #555;
+}
+
+footer a:hover {
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 15px;
+}/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+
+footer a {
+  color: #555;
+}
+
+footer a:hover {
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 15px;
+}
+
+
+// クイズの表示
+
+.container-quizes {
+  width: 80%;
+  margin: 8px auto;
+  background: #fff;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+#question {
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+#choices {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+#choices > li {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+#choices > li:hover {
+  background: #f8f8f8;
+}
+
+#btn {
+  background: #3498db;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 4px 0 #2880b9;
+}
+
+#btn.disabled {
+  background: #ccc;
+  box-shadow: 0 4px 0 #bbb;
+  opacity: 0.7;
+}
+
+
+
+/* 回答後に上に被せてタップできなくするための要素（デフォルト非表示、回答後に一時的に表示） */
+.quiz_area .quiz_area_bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+    color: #FFF;
+    text-align: center;
+}
+
+/* 画面に〇、×を表示するための要素（デフォルト非表示、回答後に一時的に表示） */
+.quiz_area .quiz_area_icon{
+    position: absolute;
+    box-sizing: border-box;
+    top: 50%;
+    left: 50%;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    color: red;
+    display: none;
+    font-size: 10em;
+    font-weight: bold;
+    -webkit-text-stroke: 4px #FFF;
+    text-stroke: 4px #FFF;
+}
+
+/* .trueまたは.falseのクラスが付与されたら表示するものとみなす */
+.quiz_area .quiz_area_icon.true, .quiz_area .quiz_area_icon.false{
+    display: block;
+}
+
+/* .trueは正解（〇を表示） */
+.quiz_area .quiz_area_icon.true:before{
+    content: '〇';
+    color: red;
+}
+/* .falseは不正解（×を表示） */
+.quiz_area .quiz_area_icon.false:before{
+    content: '×';
+    color: blue;
+}
+
+/* microposts */
+
+.microposts {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.image {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
+}

@@ -1,0 +1,26 @@
+<header class="nav navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "ホーム", root_path %></li>
+        <!--<li><%= link_to "Q＆A", '#' %></li>-->
+        <% if logged_in?%>
+        <li><%= link_to "マイページ", current_user %></li>
+        <li><%= link_to "ユーザー一覧", list_path %></li>
+        <li><%= link_to "ランキング", ranking_path%></li>
+        <li><%= link_to "マイクイズ", quiz_path(current_user) %></li>
+        <li><%= link_to "他人クイズ", quizzes_path %></li>
+        <li><%= link_to "編集", edit_user_path(current_user) %></li>
+        <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+        <% else %>
+        <li><%= link_to "新規登録", signup_path %></li>
+        <li><%= link_to "ログイン", login_path %></li>
+        </ul>
+        <% end %>
+    </nav>
+  </div>
+</header>
+
+
+
+

@@ -1,0 +1,23 @@
+ <div class="row">
+    <aside class="col-md-4">
+      <section class="micropost_form">
+      <%= current_user.name if logged_in?%>としてログインしています。
+      <br>
+      <%= @user.name%>のページです。
+      
+      <%= render 'shared/stats'%>
+      <%= render 'shared/posts_form'%>
+      </section>
+    </aside>
+    
+      <div class="col-md-8">
+    <%= render 'follow_form' if logged_in? %>
+    <% if @user.microposts.any? %>
+      <h3>Microposts ( <%= @user.microposts.count %> )</h3>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+      <%= paginate @microposts %>
+    <% end %>
+  </div>
+

@@ -1,0 +1,36 @@
+# == Schema Information
+#
+# Table name: quizzes
+#
+#  id         :integer          not null, primary key
+#  question   :text
+#  choice_1   :text
+#  choice_2   :text
+#  choice_3   :text
+#  choice_4   :text
+#  answer     :integer
+#  user_id    :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  genre      :integer
+#
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  question: MyText
+  choice_1: MyText
+  choice_2: MyText
+  choice_3: MyText
+  choice_4: MyText
+  answer: 1
+  user: one
+
+two:
+  question: MyText
+  choice_1: MyText
+  choice_2: MyText
+  choice_3: MyText
+  choice_4: MyText
+  answer: 1
+  user: two
