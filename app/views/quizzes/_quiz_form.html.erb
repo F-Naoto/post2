@@ -2,6 +2,7 @@
     <%  if @quiz_count %>
     <p>これまでのあなたの投稿数：<%=@quiz_count%></p>
     <% end %>
+    <%=@answer%>
     <%= form_with(model: @quiz, local: true) do |f| %>
     <%= f.label:question%>
     <%= f.text_field:question, class: 'form_control filed' %>

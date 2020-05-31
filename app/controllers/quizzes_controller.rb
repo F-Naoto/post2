@@ -4,10 +4,10 @@ class QuizzesController < ApplicationController
   
   def index
   @feed_items = current_user.feed
-  @answer = params[:answer]
   end
   
   def show
+   puts params[:foo]
   if logged_in?
   @quizzes = current_user.quizzes
   @quiz_count = current_user.quizzes.where(user_id:params[:id]).count

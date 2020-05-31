@@ -14,6 +14,7 @@
 
 class User < ApplicationRecord
   attr_accessor :remember_token
+  has_many :rankings, dependent: :destroy
   has_many :quizzes, dependent: :destroy
   has_many :microposts, dependent: :destroy
   has_many :active_relationships,  class_name:  "Relationship",
