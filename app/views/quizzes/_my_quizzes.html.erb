@@ -1,4 +1,5 @@
   <div class="col-md-7">
+  <% if @quizzes.exists? %>
     <% @quizzes.each do |f|%>
     <p id="_question">＜️空欄に入る適切な語句を選択肢から選びなさい。＞<br>Question: <%= f.question %></p>
     <!--問題を入力-->
@@ -9,16 +10,17 @@
       <li onclick="goAnswer(4, <%= f.answer %>)"><%= f.choice_4 %></li>
     </ul>
     <% end %>
-</div>
+  <% end %>
+  </div>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript">
 
 function goAnswer(selectAnswerNo, correctAnswerNo) {
   if (selectAnswerNo == correctAnswerNo) {
-    alert("正解");
+    swal("正解です！", "他の問題もチャレンジしてみましょう！", "success");
   } else {
-    alert("不正解");
+    swal("不正解です！", "もう一度チャレンジしてみましょう！", "error");
   }
 }
 

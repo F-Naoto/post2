@@ -24,7 +24,6 @@ module SessionsHelper
   
   def log_out
   session.delete(:user_id)
-  
   user = User.find_by(params[:id])
   user.destroy
   end

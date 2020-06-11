@@ -8,30 +8,38 @@
       <li onclick="goAnswer(2, <%= f.answer %>)"><%= f.choice_2 %></li>
       <li onclick="goAnswer(3, <%= f.answer %>)"><%= f.choice_3 %></li>
       <li onclick="goAnswer(4, <%= f.answer %>)"><%= f.choice_4 %></li>
-     　 by <%=f.user.name%>　♡いいね済
-    </ul>
+      by <%=f.user.name%> 
     <% end %>
+    </ul>
 </div>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript">
-
 function goAnswer(selectAnswerNo, correctAnswerNo) {
     if (selectAnswerNo == correctAnswerNo) {
+       swal("正解です！", "他の問題もチャレンジしてみましょう！", "success");
         $.ajax({
-            type: "POST"
-            url: "https://6c501ddafb7e4182b85201ac97638e94.vfs.cloud9.ap-northeast-1.amazonaws.com/rankings"
-            data: {correct: 1},
-            dataType: "json"
-            })
-            .done(function () {
-                window.alert("suagsgs");
-            }),
-            .fail(function () {
-                window.alert("error");
-            });
+            type: "POST",
+            beforeSend: function(xhr) {
+            xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+          },
+        
+            url: "/rankings", // 
+            dataType: "json",
+            data: {
+                "correct": 1,
+            },
+            success: function (data) {
+                alert("success");
+            },
+            error: function (data) {
+                alert("error");
+            }
         });
+        }
+        else {
+           swal("不正解です！", "もう一度チャレンジしてみましょう！", "error");
+          };
     }
-};
 </script>
-

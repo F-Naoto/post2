@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'likes/create'
+  get 'likes/destroy'
  root   'home#index'
   get    '/list' => 'home#list'
   get    '/help',    to: 'home#help'
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   get   '/microposts/:id' => 'microposts#destroy'
+  resources :likes, only: [:create, :destroy]
   resources :users do
     member do
       get :following, :followers

@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
   
   def list
-  @users = current_user.following
+  @q = Quiz.ransack(params[:q])
+  @quizzes = @q.result(distinct: true)
   end
 
   def help

@@ -16,7 +16,8 @@
 #
 
 class Quiz < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
+  has_many :rankings, dependent: :destroy
   validates :user_id,  presence:true
   validates :question, presence:true, length:{maximum:50}
   validates :choice_1, presence:true, length:{maximum:30}
