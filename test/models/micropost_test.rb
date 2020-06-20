@@ -2,11 +2,12 @@
 #
 # Table name: microposts
 #
-#  id         :integer          not null, primary key
-#  content    :text
-#  user_id    :integer          not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  content     :text
+#  user_id     :integer          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  likes_count :integer          default(0), not null
 #
 
 require 'test_helper'

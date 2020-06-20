@@ -1,0 +1,36 @@
+
+  <div class="col-md-4">
+　<%= search_form_for @q, url:items_path do |f| %>
+  <%= f.collection_select :genre_eq, Item.all, :genre, :genre, include_blank: '選択してください' %>
+  <%= f.submit "検索" %>
+  <% end %>
+  </div>
+  
+   <div class="col-md-8">
+<%= link_to '投稿する', new_item_path, class:'btn btn-primary btn-lg' %>
+
+
+<ul class='post-item'>
+  <% @items.each do |item| %>
+      <% item.images.each do |image| %>
+    <li>
+      <div class='material-post'>
+        <div class='material-first'>
+        ジャンル：<span class='first-items'><%= item.genre%></span>
+        レベル：<span class='first-items'><%= item.target%></span>
+        </div>
+      <br>
+          <div class='material-second'>
+      簡単な説明：<%= item.explanation%>
+      <%= link_to 'ダウンロード', rails_blob_path(image, only_path: true) %>
+      <%= link_to '削除', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <br>
+      投稿日：<%= item.created_at.strftime("%Y-%m-%d%H:%M")  %>
+       <%= User.find_by(id:item.user_id).name%>さんの練習問題
+          </div>
+        </div>
+    </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

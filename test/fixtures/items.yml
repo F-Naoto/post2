@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: items
+#
+#  id          :integer          not null, primary key
+#  explanation :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  user_id     :string
+#  target      :string
+#  genre       :string
+#
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+
+two:
+  name: MyString

@@ -1,7 +1,7 @@
     <% @rankings.each.with_index(1) do |f,i| %>
     <ul id='ranking'>
     <li id='user_name'>  <%=image_tag "ranking#{i}"%>　<span>ユーザー名</span> <%= link_to f.user.name, user_path(f.user_id) %> </li>
-    <li id='correct_numbers'><span>正解数</span> <%= f.total_correct %> </li>
+    <li id='correct_numbers'><span>正解数</span> <%= f.total_correct + 1%> </li>
     <% end %> 
     <li id = "your-corrects">あなたの正解数は<%=  @user_ranking %>問です。</li>
     </ul>

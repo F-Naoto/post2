@@ -410,3 +410,28 @@ l{
     content: '×';
     color: blue;
 }
+
+// 教材共有ページ
+
+.post-item{
+  list-style:none;
+  padding:0;
+}
+.material-post{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: black;
+    background: #e4fcff;/*背景色*/
+    border-top: solid 6px #1dc1d6;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
+.material-first{
+  background-color:white;
+  border-radius:10px;
+  padding-left:1em;
+}
+.first-items{
+  font-size:20px;
+  background:linear-gradient(transparent 75%, #fff799 75%);
+  font-weight:bold; 
+}
+}

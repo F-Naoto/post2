@@ -14,6 +14,9 @@
 
 class User < ApplicationRecord
   attr_accessor :remember_token
+  has_many :messages, dependent: :destroy
+  has_many_attached :images
+  has_many :items, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :rankings, dependent: :destroy
   has_many :quizzes, dependent: :destroy

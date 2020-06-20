@@ -7,10 +7,13 @@
         <!--<li><%= link_to "Q＆A", '#' %></li>-->
         <% if logged_in?%>
         <li><%= link_to "マイページ", current_user %></li>
-        <li><%= link_to "ユーザー一覧", list_path %></li>
+        <li><%= link_to "練習問題共有", items_path %></li>
+        <li><%= link_to "いろんなクイズ", list_path %></li>
         <li><%= link_to "ランキング", rankings_path%></li>
         <li><%= link_to "マイクイズ", quiz_path(current_user) %></li>
         <li><%= link_to "他人クイズ", quizzes_path %></li>
+        <li><%= link_to "リアルタイムチャット質問", rooms_show_path %></li>
+        <li><%= link_to "英語講座", '#' %></li>
         <li><%= link_to "編集", edit_user_path(current_user) %></li>
         <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
         <% else %>

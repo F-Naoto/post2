@@ -12,7 +12,7 @@
 #  user_id    :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  genre      :integer
+#  genre      :string
 #
 
 class Quiz < ApplicationRecord

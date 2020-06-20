@@ -1,0 +1,11 @@
+<h1>Chat room</h1>
+<div id='messages'>
+<%= @messages.each do |message| %>
+<div class='message'>
+<p><%= message.content %></p>
+</div>
+<% end %>
+</div>
+
+<%= label_tag :content, 'Say something:' %>
+<%= text_field_tag :content, nil, data: { behavior: 'room_speaker' } %>

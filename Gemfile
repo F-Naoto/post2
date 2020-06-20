@@ -23,8 +23,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 gem 'kaminari'
 gem 'faker',          '1.7.3'
-gem 'gon'
 gem 'ransack'
+gem 'pry-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

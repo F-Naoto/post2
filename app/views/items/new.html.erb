@@ -1,0 +1,52 @@
+<h1>問題を共有する</h1>
+
+  <%= form_with(model: @item, local: true) do |f| %>
+  <div>
+    対象レベル
+      <%= f.select :target, {'入門者': '入門者', '初級者': '初級者','中級者':'中級者','上級者':'上級者','超上級者': '超上級者' }, { include_blank: '範囲を選択してください'}, { class: 'form-control' , required: true } %>
+    ジャンル
+      <%= f.select :genre, {'文の種類・文の組み立て': '文の種類・文の組み立て', '時制': '時制','助動詞':'助動詞',
+                            '受動態':'受動態','不定詞': '不定詞', '動名詞': '動名詞','分詞':'分詞','比較':'比較','
+                            関係詞': '関係詞', '仮定法': '仮定法','話法':'話法','接続詞':'接続詞','前置詞': '前置詞',
+                            '形容詞・副詞': '形容詞・副詞','名詞・冠詞・代名詞':'名詞・冠詞・代名詞','その他':'その他'}, { include_blank: '範囲を選択してください'}, { class: 'form-control' , required: true } %>
+  </div>
+  
+   <div>
+    <%= f.label '簡単な説明を書いてください。' %>
+    <%= f.text_field :explanation %>
+  </div>
+
+  <div>
+    <%= f.label :images %>
+    <%= f.file_field :images, multiple: true %>
+  </div>
+
+  <div>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.submit "送信する", data: { disable_with: "送信中..." } %>
+  </div>
+<% end %>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">
+  Launch demo modal
+</button>
+<div class="modal fade" id="modal1" tabindex="-1"
+      role="dialog" aria-labelledby="label1" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="label1">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Modal body
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">OK</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -8,6 +8,7 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  total_correct :integer
+#  quiz_id       :integer
 #
 
 class Ranking < ApplicationRecord

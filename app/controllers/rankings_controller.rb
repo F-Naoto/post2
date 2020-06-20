@@ -1,7 +1,7 @@
 class RankingsController < ApplicationController
   def index
   @rankings = Ranking.group(:user_id).order('count(user_id) desc')
-  @user_ranking = current_user.rankings.count - 1
+  @user_ranking = current_user.rankings.count 
   end
   
   def create
