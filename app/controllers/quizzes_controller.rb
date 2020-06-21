@@ -40,7 +40,7 @@ class QuizzesController < ApplicationController
   
   private
 def quiz_params
-params.require(:quiz).permit(:question, :choice_1, :choice_2, :choice_3, :choice_4, :answer,:genre)
+params.require(:quiz).permit(:question, :choice_1, :choice_2, :choice_3, :choice_4, :answer, :genre)
 end
 
   def correct_user

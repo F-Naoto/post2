@@ -10,15 +10,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_23_014549) do
+ActiveRecord::Schema.define(version: 2020_06_21_053814) do
+
+  create_table "items", force: :cascade do |t|
+    t.string "explanation"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "user_id"
+    t.string "target"
+    t.string "genre"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "micropost_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["micropost_id"], name: "index_likes_on_micropost_id"
+    t.index ["user_id", "micropost_id"], name: "index_likes_on_user_id_and_micropost_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
 
   create_table "microposts", force: :cascade do |t|
     t.text "content"
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "likes_count", default: 0, null: false
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
+  end
+
+  create_table "quizzes", force: :cascade do |t|
+    t.text "question"
+    t.text "choice_1"
+    t.text "choice_2"
+    t.text "choice_3"
+    t.text "choice_4"
+    t.integer "answer"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "genre"
+    t.index ["user_id"], name: "index_quizzes_on_user_id"
+  end
+
+  create_table "rankings", force: :cascade do |t|
+    t.string "correct"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "total_correct"
+    t.integer "quiz_id"
+    t.index ["quiz_id"], name: "index_rankings_on_quiz_id"
+    t.index ["user_id"], name: "index_rankings_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -37,7 +82,9 @@ ActiveRecord::Schema.define(version: 2020_05_23_014549) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "email"
     t.string "password_digest"
+    t.string "remember_digest"
   end
 
   add_foreign_key "microposts", "users"
+  add_foreign_key "quizzes", "users"
 end

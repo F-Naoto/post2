@@ -1,6 +1,6 @@
 class AddGenreToQuiz < ActiveRecord::Migration[6.0]
   def change
-    change_column :quizzes, :genre, :string
-    change_column :quizzes, :target, :string
+    add_column :quizzes, :genre, :string
+    add_column :quizzes, :target, :string
   end
 end
